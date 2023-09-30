@@ -2,11 +2,19 @@
 
 Interactive CLI to quickly start a project.
 
+## Table of contents
+
+- [So what is this exactly](#so-what-is-this-exactly)
+- [Getting Started](#getting-started)
+- [List of Templates](#list-of-templates)
+
 ## So what is this exactly?
 
 This is a CLI built by [me](https://www.linkedin.com/in/theosakram/) to streamline the setup of the projects that I frequently do. So yes, this is a _very opinionated_ stacks, and this is also **NOT** an all-inclusive template.
 
-## Installation
+## Getting Started
+
+If you want to install it on your local
 
 ```bash
 yarn global add theosakram-cli
@@ -18,7 +26,13 @@ and after that you can run this command on your terminal, like so:
 theosakram-create
 ```
 
-### List of Templates
+Or if you dont want to install it on your local
+
+```bash
+npx theosakram-create
+```
+
+## List of Templates
 
 ### 1. Next-Chakra
 
