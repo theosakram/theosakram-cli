@@ -26,8 +26,8 @@ The _"next-chakra"_ template is a frontend web development stack. It consists of
 
 - Main
   - [Next.js](https://nextjs.org)
-  - [Chakra UI](https://chakra-ui.com/)
   - [TypeScript](https://typescriptlang.org)
+  - [Chakra UI](https://chakra-ui.com/)
   - [React-Query](https://tanstack.com/query/v3/)
   - [Eslint](https://eslint.org/)
   - [Prettier](https://prettier.io/)
