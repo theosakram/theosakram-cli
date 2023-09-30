@@ -1,14 +1,12 @@
 #!/usr/bin/env node
 import { readdirSync } from 'fs';
-import { dirname, join } from 'path';
-import { fileURLToPath } from 'url';
+import { join } from 'path';
 import { createPromptModule } from 'inquirer';
 import type { Answers, QuestionCollection } from 'inquirer';
+import { DIRNAME } from './constants.js';
+import { createProject } from './createProject.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const CHOICES = readdirSync(join(__dirname, 'templates'));
+const CHOICES = readdirSync(join(DIRNAME, 'templates'));
 
 const QUESTIONS: QuestionCollection<Answers> = [
   {
@@ -36,7 +34,7 @@ const prompt = createPromptModule();
 prompt(QUESTIONS).then((answers) => {
   const projectChoice = answers['project-choice'];
   const projectName = answers['project-name'];
-  const templatesPath = join(__dirname, 'templates', projectChoice);
+  const templatesPath = join(DIRNAME, 'templates', projectChoice);
 
-  console.log({ projectChoice, projectName, templatesPath });
+  createProject(templatesPath, projectName);
 });
