@@ -6,14 +6,29 @@ import type { Answers, QuestionCollection } from 'inquirer';
 import { DIRNAME } from './constants.js';
 import { createProject } from './createProject.js';
 
-const CHOICES = readdirSync(join(DIRNAME, 'templates'));
+const PROJECT_CHOICES = readdirSync(join(DIRNAME, 'templates'));
+const OPTIONAL_NEXT_CHAKRA_PACKAGE = [
+  { name: 'Next SEO', value: 'next-seo' },
+  { name: 'React Hook Form', value: 'react-hook-form' },
+  { name: 'React Icons', value: 'react-icons' },
+  { name: 'React Select', value: 'react-select' },
+  { name: 'React Table', value: 'react-table' },
+  { name: 'Zustand', value: 'zustand' },
+];
 
 const QUESTIONS: QuestionCollection<Answers> = [
   {
     name: 'project-choice',
     type: 'list',
     message: 'What project do you want to generate?',
-    choices: CHOICES,
+    choices: PROJECT_CHOICES,
+  },
+  {
+    name: 'optional-install-for-next-chakra',
+    type: 'checkbox',
+    message: 'Will you be needing any of this?',
+    choices: OPTIONAL_NEXT_CHAKRA_PACKAGE,
+    when: (answer) => answer['project-choice'] === 'next-chakra',
   },
   {
     name: 'project-name',
