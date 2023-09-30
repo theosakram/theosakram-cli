@@ -2,6 +2,8 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSy
 import { join } from 'path';
 import { CURR_DIR } from './constants.js';
 
+const SKIP_FILES = ['node_modules', '.template.json'];
+
 export const createProject = (templatePath: string, newProjectPath: string) => {
   if (existsSync(newProjectPath)) {
     console.log(`Folder ${newProjectPath} already exists. Delete or use another name.`);
@@ -16,6 +18,8 @@ export const createProject = (templatePath: string, newProjectPath: string) => {
     const originalPath = join(templatePath, file);
     const fileStat = statSync(originalPath);
     const writePath = join(CURR_DIR, newProjectPath, file);
+
+    if (SKIP_FILES.indexOf(file) > -1) return;
 
     if (fileStat.isFile()) {
       const content = readFileSync(originalPath, 'utf-8');
