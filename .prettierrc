@@ -1,0 +1,14 @@
+{
+  "arrowParens": "always",
+  "insertPragma": false,
+  "printWidth": 100,
+  "proseWrap": "preserve",
+  "requirePragma": false,
+  "semi": true,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "all",
+  "useTabs": false,
+  "plugins": ["@ianvs/prettier-plugin-sort-imports"],
+  "importOrder": ["react","next","<THIRD_PARTY_MODULES>", "^[./]"]
+}
