@@ -2,7 +2,7 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSy
 import { join } from 'path';
 import { CURR_DIR } from './constants.js';
 
-const SKIP_FILES = ['node_modules', '.template.json'];
+const SKIP_FILES = ['node_modules', '.template.json', '.next', '.swc'];
 
 export const createProject = (templatePath: string, newProjectPath: string) => {
   if (existsSync(newProjectPath)) {
